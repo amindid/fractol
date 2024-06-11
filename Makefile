@@ -42,11 +42,11 @@ RM		= rm -f
 all : ${NAME}
 
 %.o : %.c
-	${CC} ${CFLAGS} -Imlx -c $< -o $@
+	${CC} ${CFLAGS} -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 
 ${NAME} : $(OBJS) main.c fractol.h
-	${CC} ${CFLAGS} ${OBJS} main.c -lmlx -framework OpenGL -framework AppKit -O3 -o $@
+	${CC} ${CFLAGS} ${OBJS} main.c -I/minilibx-linux -L/minilibx-linux -lmlx -lXext -lX11 -lm -lz -o $@
 	clear
 	@printf "$(GREEN)█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████\n"
 	@printf "█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░███░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░████████████████░░░░░░░░░░░░░░█░░░░░░█████████\n"
@@ -73,7 +73,7 @@ fclean: clean
 	${RM} ${NAME} ${BNAME}
 
 ${BNAME} : ${BOBJS} main_bonus.c fractol.h
-	${CC} ${CFLAGS} ${BOBJS} main_bonus.c  -lmlx -framework OpenGL -framework AppKit -O3 -o $@
+	${CC} ${CFLAGS} ${BOBJS} main_bonus.c -I/minilibx-linux -L/minilibx-linux -lmlx -lXext -lX11 -lm -lz -o $@
 	clear
 	@printf "$(GREEN)█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████\n"
 	@printf "█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░███░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░████████████████░░░░░░░░░░░░░░█░░░░░░█████████\n"

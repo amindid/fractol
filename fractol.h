@@ -14,7 +14,7 @@
 # define FRACTOL_H
 
 # include <unistd.h>
-# include <mlx.h>
+# include </minilibx-linux/mlx.h>
 # include <stdlib.h>
 # include <math.h>
 
